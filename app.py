@@ -17,7 +17,7 @@ import plotly.graph_objects as go
 # # Read the CSV file
 df = pd.read_csv('player_data2.csv')
 
-st.set_page_config(page_title='NBA World',page_icon='🌎')
+st.set_page_config(page_title='NBA World',page_icon='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3I6B-gj9HiNSibn8u1eZpgegXRQDnIy_Fkw&s')
 st.markdown("<h2 style='text-align: center; font-size: 80px;'>NBA World</h2>", unsafe_allow_html=True)
 st.subheader('View the birthplaces of every NBA player from 1947 to 2020')
 
