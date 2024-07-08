@@ -15,7 +15,7 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 # # Read the CSV file
-df = pd.read_csv('/Users/ryan/Downloads/NBAPlayerLocationWebApp/player_data2.csv')
+df = pd.read_csv('player_data2.csv')
 
 st.set_page_config(page_title='NBA World',page_icon='🌎')
 st.markdown("<h2 style='text-align: center; font-size: 80px;'>NBA World</h2>", unsafe_allow_html=True)
@@ -151,7 +151,7 @@ if filter:
     elif filter == 'World':
         type = st.selectbox('Filter by:',['State','Country'])
         st.write('This graph shows country of birth, this might not be the same nationality (US not included)')
-        df = pd.read_csv('/Users/ryan/Downloads/NBAPlayerLocationWebApp/player_data2.csv')
+        df = pd.read_csv('player_data2.csv')
         df = df[df['start_year']<=year]
         df_agg = df.groupby('City').agg({'Latitude': 'first', 'Longitude': 'first','State':'first', 'Country': 'first','Player': lambda x: ', '.join(x)}).reset_index()
         df_agg['NumPlayers'] = df.groupby('City')['Player'].nunique().values
