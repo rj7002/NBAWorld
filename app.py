@@ -232,7 +232,8 @@ if filter:
         st.plotly_chart(fig2,use_container_width=True)
 
         st.markdown(f"<h2 style='text-align: center; font-size: 40px;'>{countries.size} different countries</h2>", unsafe_allow_html=True)
-
+else:
+    st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3I6B-gj9HiNSibn8u1eZpgegXRQDnIy_Fkw&s",use_container_width=True)
 
 
 
