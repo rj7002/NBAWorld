@@ -70,7 +70,8 @@ if filter:
             st.markdown(f"<h2 style='text-align: center; font-size: 40px;'>{cities.size} different cities</h2>", unsafe_allow_html=True)
             city = st.selectbox('Select city',cities)
             citydf = df[df['City']==city]
-            st.markdown('<a href=f"{citydf['bbref_link']}" target="_blank">{citydf['Player']}</a>', unsafe_allow_html=True)
+            for index, row in citydf.iterrows():
+                st.markdown(f'<a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
 
         # Render the map using st.plotly_chart
         df_agg = df.groupby('State').agg({'Latitude': 'first', 'Longitude': 'first', 'Player': lambda x: ', '.join(x)}).reset_index()
