@@ -78,23 +78,23 @@ if filter:
             st.plotly_chart(fig)
             df_agg2 = df.groupby('City').agg({'Latitude': 'first', 'Longitude': 'first','State':'first', 'Player': lambda x: ', '.join(x)}).reset_index()
             df_agg2['NumPlayers'] = df.groupby('City')['Player'].nunique().values
-            df_agg2['NumCities'] = df.groupby['City'].nunique().values
+            # df_agg2['NumCities'] = df.groupby['City'].nunique().values
 
 
-            fig2 = px.line(df_agg2, x='Year', y='NumCities',
-               title='Number of Cities with NBA Players Over the Years',
-               labels={'NumCities': 'Number of Cities', 'Year': 'Year'},
-               color_discrete_sequence=['blue']  # Color of the line
-               )
+            # fig2 = px.line(df_agg2, x='Year', y='NumCities',
+            #    title='Number of Cities with NBA Players Over the Years',
+            #    labels={'NumCities': 'Number of Cities', 'Year': 'Year'},
+            #    color_discrete_sequence=['blue']  # Color of the line
+            #    )
 
-            # Customize layout
-            fig2.update_layout(
-                xaxis_title='Year',
-                yaxis_title='Number of Cities',
-                plot_bgcolor='rgba(0, 0, 0, 0)',
-                margin=dict(l=50, r=50, t=50, b=50)  # Adjust margins
-            )
-            st.plotly_chart(fig2)
+            # # Customize layout
+            # fig2.update_layout(
+            #     xaxis_title='Year',
+            #     yaxis_title='Number of Cities',
+            #     plot_bgcolor='rgba(0, 0, 0, 0)',
+            #     margin=dict(l=50, r=50, t=50, b=50)  # Adjust margins
+            # )
+            # # st.plotly_chart(fig2)
             cities = df['City'].unique()
             st.markdown(f"<h2 style='text-align: center; font-size: 40px;'>{cities.size} different cities</h2>", unsafe_allow_html=True)
             city = st.selectbox('Select city',cities)
