@@ -118,7 +118,7 @@ if filter:
 
             st.markdown(f"<h2 style='text-align: center; font-size: 40px;'>{states.size} different states/districts</h2>", unsafe_allow_html=True)
             state = st.selectbox('Select state',states)
-            statedf = df[df['State'== state]]
+            statedf = df[df['State']== state]
             st.write(statedf)
 
         
@@ -242,6 +242,9 @@ if filter:
         st.plotly_chart(fig2,use_container_width=True)
 
         st.markdown(f"<h2 style='text-align: center; font-size: 40px;'>{countries.size} different countries</h2>", unsafe_allow_html=True)
+        country = st.selectbox('Select country',countries)
+        countrydf = df[df['Country']==country]
+        st.write(countrydf)
 else:
     st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3I6B-gj9HiNSibn8u1eZpgegXRQDnIy_Fkw&s",width=800)
 
