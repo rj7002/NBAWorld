@@ -101,8 +101,9 @@ if filter:
             citydf = df[df['City']==city]
             for index, row in citydf.iterrows():
                 playerid = row['bbref_id']
-                display_player_image(playerid,100,'')
-                st.markdown(f'<div style="text-align: center;"><a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
+                # display_player_image(playerid,100,'')
+                # st.markdown(f'<div style="text-align: center;"><a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
+                display_player_image(playerid, 100, f'<a href="{row['bbref_link']}" target="_blank">{row['Player']}</a>')
 
         # Render the map using st.plotly_chart
         df_agg = df.groupby('State').agg({'Latitude': 'first', 'Longitude': 'first', 'Player': lambda x: ', '.join(x)}).reset_index()
