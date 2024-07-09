@@ -16,7 +16,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import datetime
 from datetime import datetime
-
+import requests
 def display_player_image(player_id, width2, caption2):
     # Construct the URL for the player image using the player ID
     image_url = f"https://www.basketball-reference.com/req/202106291/images/headshots/{player_id}.jpg"
