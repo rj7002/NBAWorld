@@ -101,7 +101,6 @@ if filter:
             citydf = df[df['City']==city]
             for index, row in citydf.iterrows():
                 playerid = row['bbref_id']
-                st.write(playerid)
                 display_player_image(playerid,100,'')
                 st.markdown(f'<div style="text-align: center;"><a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
 
@@ -153,7 +152,9 @@ if filter:
             state = st.selectbox('Select state',states)
             statedf = df[df['State']== state]
             for index, row in statedf.iterrows():
-                st.markdown(f'<a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
+                playerid = row['bbref_id']
+                display_player_image(playerid,100,'')
+                st.markdown(f'<div style="text-align: center;"><a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
 
         
 
@@ -280,7 +281,9 @@ if filter:
         countrydf = df[df['Country']==country]
         countrydf = countrydf[countrydf['Country']!='USA']
         for index, row in countrydf.iterrows():
-            st.markdown(f'<a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
+            playerid = row['bbref_id']
+            display_player_image(playerid,100,'')
+            st.markdown(f'<div style="text-align: center;"><a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
 
 else:
     st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3I6B-gj9HiNSibn8u1eZpgegXRQDnIy_Fkw&s",width=800)
