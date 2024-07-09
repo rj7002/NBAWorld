@@ -154,8 +154,9 @@ if filter:
             statedf = df[df['State']== state]
             for index, row in statedf.iterrows():
                 playerid = row['bbref_id']
-                display_player_image(playerid,100,'')
-                st.markdown(f'<div style="text-align: center;"><a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
+                # display_player_image(playerid,100,'')
+                # st.markdown(f'<div style="text-align: center;"><a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
+                display_player_image(playerid, 100, f'<a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>')
 
         
 
@@ -283,8 +284,9 @@ if filter:
         countrydf = countrydf[countrydf['Country']!='USA']
         for index, row in countrydf.iterrows():
             playerid = row['bbref_id']
-            display_player_image(playerid,100,'')
-            st.markdown(f'<div style="text-align: center;"><a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
+            # display_player_image(playerid,100,'')
+            # st.markdown(f'<div style="text-align: center;"><a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
+            display_player_image(playerid, 100, f'<a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>')
 
 else:
     st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3I6B-gj9HiNSibn8u1eZpgegXRQDnIy_Fkw&s",width=800)
