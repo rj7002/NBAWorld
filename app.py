@@ -28,13 +28,9 @@ st.subheader('View the birthplaces of every NBA player from 1947 to 2020')
 filter = st.selectbox('Filter by:',['','USA','World'])
 if filter:
     year = st.slider('Select year',1947,2020,2020)
-    # active = st.selectbox('Filter by:',['active','all time'])
-    # if active == 'active':
-    #     df=df[df['to_year'==currentyear]]
-    # else:
-    #     df=df
-    # df = df[df['start_year']<=year]
+    df = df[df['start_year']<=year]
     if filter == 'USA':
+        df=df[df['Country'=='USA']]
         type = st.selectbox('Filter by:',['City','State'])
         if type == 'City':
             df_agg = df.groupby('City').agg({'Latitude': 'first', 'Longitude': 'first','State':'first', 'Player': lambda x: ', '.join(x)}).reset_index()
