@@ -68,6 +68,9 @@ if filter:
             st.plotly_chart(fig2)
             cities = df['City'].unique()
             st.markdown(f"<h2 style='text-align: center; font-size: 40px;'>{cities.size} different cities</h2>", unsafe_allow_html=True)
+            city = st.selectbox('Select city',cities)
+            citydf = df[df['City']==city]
+            st.write(citydf)
 
         # Render the map using st.plotly_chart
         df_agg = df.groupby('State').agg({'Latitude': 'first', 'Longitude': 'first', 'Player': lambda x: ', '.join(x)}).reset_index()
