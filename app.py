@@ -30,7 +30,7 @@ if filter:
     year = st.slider('Select year',1947,2020,2020)
     df = df[df['start_year']<=year]
     if filter == 'USA':
-        df=df[df['Country'=='USA']]
+        df=df[df['Country']=='USA']
         type = st.selectbox('Filter by:',['City','State'])
         if type == 'City':
             df_agg = df.groupby('City').agg({'Latitude': 'first', 'Longitude': 'first','State':'first', 'Player': lambda x: ', '.join(x)}).reset_index()
