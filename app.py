@@ -16,6 +16,35 @@ import plotly.express as px
 import plotly.graph_objects as go
 import datetime
 from datetime import datetime
+
+def display_player_image(player_id, width2, caption2):
+    # Construct the URL for the player image using the player ID
+    image_url = f"https://www.basketball-reference.com/req/202106291/images/headshots/{player_id}.jpg"
+    
+    # Check if the image URL returns a successful response
+    response = requests.head(image_url)
+    
+    if response.status_code == 200:
+        # If image is available, display it
+        st.markdown(
+        f'<div style="display: flex; flex-direction: column; align-items: center;">'
+        f'<img src="{image_url}" style="width: {width2}px;">'
+        f'<p style="text-align: center;">{caption2}</p>'
+        f'</div>',
+        unsafe_allow_html=True
+    )
+    
+        # st.image(image_url, width=width2, caption=caption2)
+    else:
+        image_url = "https://cdn.nba.com/headshots/nba/latest/1040x760/fallback.png"
+        st.markdown(
+        f'<div style="display: flex; flex-direction: column; align-items: center;">'
+        f'<img src="{image_url}" style="width: {width2}px;">'
+        f'<p style="text-align: center;">{"Image Unavailable"}</p>'
+        f'</div>',
+        unsafe_allow_html=True
+    )
+
 currentyear = datetime.now().year
 # # Read the CSV file
 df = pd.read_csv('player_data2.csv')
@@ -71,6 +100,8 @@ if filter:
             city = st.selectbox('Select city',cities)
             citydf = df[df['City']==city]
             for index, row in citydf.iterrows():
+                playerid = row['bbref_id']
+                display_player_image(playerid,100,'')
                 st.markdown(f'<a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
 
         # Render the map using st.plotly_chart
