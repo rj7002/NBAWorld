@@ -16,7 +16,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import datetime
 from datetime import datetime
-currentyear = datetime.datetime.now().year
+currentyear = datetime.now().year
 # # Read the CSV file
 df = pd.read_csv('player_data2.csv')
 
