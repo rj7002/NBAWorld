@@ -40,7 +40,7 @@ def display_player_image(player_id, width2, caption2):
         st.markdown(
         f'<div style="display: flex; flex-direction: column; align-items: center;">'
         f'<img src="{image_url}" style="width: {width2}px;">'
-        f'<p style="text-align: center;">{"Image Unavailable"}</p>'
+        f'<p style="text-align: center;">{caption2}</p>'
         f'</div>',
         unsafe_allow_html=True
     )
