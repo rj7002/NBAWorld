@@ -117,6 +117,9 @@ if filter:
             states = df['State'].unique()
 
             st.markdown(f"<h2 style='text-align: center; font-size: 40px;'>{states.size} different states/districts</h2>", unsafe_allow_html=True)
+            state = st.selectbox('Select state',states)
+            statedf = df[df['State'== state]]
+            st.write(statedf)
 
         
 
