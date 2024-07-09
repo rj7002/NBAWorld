@@ -14,6 +14,9 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
+import datetime
+from datetime import datetime
+currentyear = datetime.datetime.now().year
 # # Read the CSV file
 df = pd.read_csv('player_data2.csv')
 
@@ -25,6 +28,11 @@ st.subheader('View the birthplaces of every NBA player from 1947 to 2020')
 filter = st.selectbox('Filter by:',['','USA','World'])
 if filter:
     year = st.slider('Select year',1947,2020,2020)
+    active = st.selectbox('Filter by:',['active','all time'])
+    if active == 'active':
+        df=df[df['to_year'==currentyear]]
+    else:
+        df=df
     df = df[df['start_year']<=year]
     if filter == 'USA':
         type = st.selectbox('Filter by:',['City','State'])
