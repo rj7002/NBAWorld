@@ -101,6 +101,7 @@ if filter:
             citydf = df[df['City']==city]
             for index, row in citydf.iterrows():
                 playerid = row['bbref_id']
+                st.write(playerid)
                 display_player_image(playerid,100,'')
                 st.markdown(f'<a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
 
