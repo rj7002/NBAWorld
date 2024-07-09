@@ -103,7 +103,7 @@ if filter:
                 playerid = row['bbref_id']
                 st.write(playerid)
                 display_player_image(playerid,100,'')
-                st.markdown(f'<a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
+                st.markdown(f'<div style="text-align: center;"><a href="{row["bbref_link"]}" target="_blank">{row["Player"]}</a>', unsafe_allow_html=True)
 
         # Render the map using st.plotly_chart
         df_agg = df.groupby('State').agg({'Latitude': 'first', 'Longitude': 'first', 'Player': lambda x: ', '.join(x)}).reset_index()
