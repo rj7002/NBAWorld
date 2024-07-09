@@ -94,7 +94,7 @@ if filter:
                 bargap=0.1,  # Gap between bars
                 margin=dict(l=50, r=50, t=50, b=50)  # Adjust margins
             )
-            st.plotly_chart(fig2)
+            # st.plotly_chart(fig2)
             cities = df['City'].unique()
             st.markdown(f"<h2 style='text-align: center; font-size: 40px;'>{cities.size} different cities</h2>", unsafe_allow_html=True)
             city = st.selectbox('Select city',cities)
@@ -146,7 +146,7 @@ if filter:
                 ),
             )
             st.plotly_chart(fig3,use_container_width=True)
-            st.plotly_chart(fig1)
+            # st.plotly_chart(fig1)
             states = df['State'].unique()
 
             st.markdown(f"<h2 style='text-align: center; font-size: 40px;'>{states.size} different states/districts</h2>", unsafe_allow_html=True)
@@ -276,7 +276,7 @@ if filter:
         # Center the plot in Streamlit using layout options
         if type == 'Country':
             st.plotly_chart(fig3)
-        st.plotly_chart(fig2,use_container_width=True)
+        # st.plotly_chart(fig2,use_container_width=True)
 
         st.markdown(f"<h2 style='text-align: center; font-size: 40px;'>{countries.size} different countries</h2>", unsafe_allow_html=True)
         country = st.selectbox('Select country',countries)
